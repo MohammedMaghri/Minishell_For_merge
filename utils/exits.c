@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd_show.c                                         :+:      :+:    :+:   */
+/*   exits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mlouazir <mlouazir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 18:14:37 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/02/06 18:19:49 by mmaghri          ###   ########.fr       */
+/*   Created: 2024/02/06 15:36:05 by mlouazir          #+#    #+#             */
+/*   Updated: 2024/02/11 16:19:04 by mlouazir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void show_path(char *string)
+void	error_found(void)
 {
-    char *current_dir;
-
-    current_dir = malloc(10000);
-    if (check_string(string, "pwd") == 0)
-        printf("%s\n", getcwd(current_dir, 10000));
-    return ;
+	printf("syntax error\n");
+	gc(0, 2);
+	exit(1);
 }

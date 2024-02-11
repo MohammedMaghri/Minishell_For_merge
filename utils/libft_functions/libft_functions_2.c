@@ -6,11 +6,11 @@
 /*   By: mlouazir <mlouazir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:37:51 by mlouazir          #+#    #+#             */
-/*   Updated: 2024/02/05 13:39:17 by mlouazir         ###   ########.fr       */
+/*   Updated: 2024/02/11 16:18:50 by mlouazir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
 int	ft_strlcat(char *dst, char *src, int dstsize)
 {
@@ -43,7 +43,7 @@ int	ft_strlcpy(char *dst, const char *src, int dstsize)
 	i = 0;
 	j = 0;
 	ls = ft_strlen((char *)src);
-	if (dstsize == 0)
+	if (dstsize == 0 || ls == 0)
 		return (ls);
 	while (src[i] && i < (dstsize - 1))
 	{
@@ -59,8 +59,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*str;
 	int		size;
 
-	if (!s1 || !s2)
-		return (NULL);
 	size = ft_strlen(s1) + ft_strlen(s2);
 	str = gc(size + 1, 0);
 	if (size == 0)
@@ -74,4 +72,20 @@ char	*ft_strjoin(char *s1, char *s2)
 			ft_strlcat(str, (char *)s2, size + 1);
 	}
 	return (str);
+}
+
+int	ft_strncmp_2(char *s1, char *s2, int n)
+{
+	int	i;
+
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ((s1[i] && s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }
