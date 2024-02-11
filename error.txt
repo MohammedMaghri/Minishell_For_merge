@@ -1,0 +1,225 @@
+bash-3.2$ echo $HOME=lol
+/Users/mlouazir=lol
+bash-3.2$ echo $HOME.lol
+/Users/mlouazir.lol
+bash-3.2$ echo $HOME!lol
+bash: !lol: event not found
+bash-3.2$ echo $HOME+lol
+/Users/mlouazir+lol
+bash-3.2$ echo $HOME~lol
+/Users/mlouazir~lol
+bash-3.2$ echo $HOME`lol
+> 
+bash-3.2$ echo $1HOME=lol
+HOME=lol
+bash-3.2$ echo $"HOME"=lol
+HOME=lol
+bash-3.2$ echo $10HOME=lol
+0HOME=lol
+bash-3.2$ echo $$HOME=lol
+54937HOME=lol
+bash-3.2$ echo $$
+54937
+bash-3.2$ echo $
+$
+bash-3.2$ echo $HOME!e
+echo $HOMEecho $$
+54937
+bash-3.2$ echo $$HOMElol
+bash-3.2$ export TEST="ls -l -a"
+bash-3.2$ $TEST
+total 160
+drwxr-xr-x  13 mlouazir  candidate    442 Feb  6 23:07 .
+drwxr-xr-x   4 mlouazir  candidate    136 Feb  6 17:26 ..
+-rw-r--r--@  1 mlouazir  candidate   6148 Feb  6 19:06 .DS_Store
+drwxr-xr-x  13 mlouazir  candidate    442 Feb  6 23:06 .git
+drwxr-xr-x   3 mlouazir  candidate    102 Feb  6 21:38 .vscode
+-rw-r--r--   1 mlouazir  candidate    524 Feb  6 19:59 Makefile
+drwxr-xr-x   3 mlouazir  candidate    102 Feb  5 17:39 execution
+-rw-r--r--   1 mlouazir  candidate   1360 Feb  6 22:46 main.c
+-rw-r--r--   1 mlouazir  candidate   2832 Feb  6 23:07 main.o
+-rwxr-xr-x   1 mlouazir  candidate  56752 Feb  6 23:07 minishell
+-rw-r--r--   1 mlouazir  candidate   3203 Feb  6 22:42 minishell.h
+drwxr-xr-x  12 mlouazir  candidate    408 Feb  6 23:07 parcing
+drwxr-xr-x  12 mlouazir  candidate    408 Feb  6 23:07 utils
+bash-3.2$ export TEST='ls -l -a'
+bash-3.2$ $TEST
+total 160
+drwxr-xr-x  13 mlouazir  candidate    442 Feb  6 23:07 .
+drwxr-xr-x   4 mlouazir  candidate    136 Feb  6 17:26 ..
+-rw-r--r--@  1 mlouazir  candidate   6148 Feb  6 19:06 .DS_Store
+drwxr-xr-x  13 mlouazir  candidate    442 Feb  6 23:06 .git
+drwxr-xr-x   3 mlouazir  candidate    102 Feb  6 21:38 .vscode
+-rw-r--r--   1 mlouazir  candidate    524 Feb  6 19:59 Makefile
+drwxr-xr-x   3 mlouazir  candidate    102 Feb  5 17:39 execution
+-rw-r--r--   1 mlouazir  candidate   1360 Feb  6 22:46 main.c
+-rw-r--r--   1 mlouazir  candidate   2832 Feb  6 23:07 main.o
+-rwxr-xr-x   1 mlouazir  candidate  56752 Feb  6 23:07 minishell
+-rw-r--r--   1 mlouazir  candidate   3203 Feb  6 22:42 minishell.h
+drwxr-xr-x  12 mlouazir  candidate    408 Feb  6 23:07 parcing
+drwxr-xr-x  12 mlouazir  candidate    408 Feb  6 23:07 utils
+bash-3.2$ "$TEST"
+bash: ls -l -a: command not found
+bash-3.2$ top
+
+---------------------------->>>>>>>>>>>>>>ls & >ls
+
+< Makefile cat main.c minishell.h
+echo $HOME""lol
+<<
+>>
+""
+''
+
+-----------------------------
+test""here
+test""here""
+""
+-----------------
+_> ls "("
+_> ls ("")
+_> (ls)(ds)
+1
+2
+_> ()
+check para _2syntax error
+_> (dsds)$PWD()
+check para _1syntax error
+_> (dsds)$PWD(dsds)
+check para _1syntax error
+_> (dsds) $PWD (dsds)
+check para _1syntax error
+_> (dsds) | (dsds)
+3
+_> (dsds) DSDS (dsds)
+check para _3syntax error
+_> (dsds) > (dsds)
+4
+_> (dsds) < (dsds)
+5
+_> LS "(DSDSDSDS")
+6
+_> LS "()"
+
+--------------
+> ($PWD)
+1
+2
+_> | (ls)
+syntax error _1 |
+syntax error
+_> | (ls) |
+syntax error _1 |
+syntax error
+_> ls | (ls) |
+syntax error _1 |
+syntax error
+_> ls | (ls) |>
+syntax error _1 >
+syntax error
+_> ls | (ls) | >
+syntax error _1 >
+syntax error
+_> ls | |
+syntax error _2 |
+syntax error
+_> ls | $PWD DSDS|
+syntax error _1 |
+syntax error
+_> ls | $PWD DSDS |
+syntax error _1 |
+syntax error
+_> ls | $PWD DSDS | dsds
+3
+_> ls | $PWD | DSDSDSA
+4
+_> ls ()()
+check para _1syntax error
+_> ls s()(s)
+check para _1syntax error
+_> ls s(s)(s)
+check para _1syntax error
+_> ls s(s)ds(s)
+check para _1syntax error
+_> ls s(s)|(s)
+check para _1syntax error
+_> ls (s)|(s)
+check para _1syntax error
+_> ls |(s)
+5
+_> ls (s)
+check para _1syntax error
+_> ls ""'"
+bool error
+syntax error
+_> ls "'"
+6
+_> ls ""' "'
+syntax error
+_> ls "' "'
+bool error
+syntax error
+_> ls " "
+7
+_> ls "ddsdsadasadsads"
+8
+_> $PWD
+9
+_> $PWD"PWD"
+10
+_> $PWD"PWD"'$PWD'
+11
+_> PWD"PWD"'$PWD' sdsd
+12
+_> ()dsdsds
+check para _2syntax error
+_> (dsdsds)dsdsds
+check para _3syntax error
+_> (dsdsds)dsdsds
+
+--------------
+
+""""""""l""s""""""""      $PWD
+
+-------------
+'So perhaps, you've generated some fancy text, and you're content that 
+you can now copy and paste your fancy text in the comments section of funny cat videos
+, but perhaps you're wondering how it's even possible to change the font of your text? Is it
+ some sort of hack? Are you copying and pasting an actual font?"So perhaps, you've generated some
+  fancy text, and you're content that you can now copy and paste your fancy text in the comments
+   section of funny cat videos, but perhaps you're wondering how it's eve
+ n possible to change the font of your text? Is it some sort of hack? Are you copying and pasting an actual font?"'
+
+
+./minishell Makefile >f1 >f2 < f3 >f4
+
+export thi================================================="test ========a"
+
+export this="""""""""""j"""""""""
+
+export                  this="       
+                                             "
+echo -n-n"jkahdjklhadhadadajkdhjkhqieuyiquwh                hkludisufyeilu      fs f sf ds f     ds d sfd f dsf s f ds f sdf ds   f sfdsf dsf ds f dsfdsfswr ewr ewr ew rw r erw ewr "
+echo -n""
+echo ' """"""""""""""""""""""""""""""""'''''''''''' '
+
+====="etst   "
+--------------
+
+|
+| echo oi
+| |
+| $
+| >
+>
+>>
+>>>
+<
+<<
+echo hi <
+cat    <| ls
+echo hi | >
+echo hi | > >>
+echo hi | < |
+echo hi |   |
+echo hi |  "|"
