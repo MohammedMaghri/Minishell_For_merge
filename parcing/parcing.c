@@ -6,7 +6,7 @@
 /*   By: mlouazir <mlouazir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:10:41 by mlouazir          #+#    #+#             */
-/*   Updated: 2024/02/11 17:38:42 by mlouazir         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:38:47 by mlouazir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,5 @@ void	parcing(char *input)
 	check_validity(holder);
 	lst_size(holder);
 	tree_generator(holder->tail, tree_h);
-	// print_tree(tree_h->root, "root\n");
+	print_tree(tree_h->root, "root\n");
 }

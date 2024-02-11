@@ -6,7 +6,7 @@
 /*   By: mlouazir <mlouazir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:52:38 by mlouazir          #+#    #+#             */
-/*   Updated: 2024/02/11 18:33:11 by mlouazir         ###   ########.fr       */
+/*   Updated: 2024/02/11 21:52:41 by mlouazir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	print_tree(t_tree *root, char *string)
 	if (!root)
 		return ;
 	while (root->content[++i])
-		printf("%s        %s       %d\n", string, root->content[i], i);
-	print_tree(root->right, "right");
+		printf("^^^^%s        %s^^^^       %d\n", string, root->content[i], i);
 	print_tree(root->left, "left");
+		printf("%s\n", root->content[0]);
+	print_tree(root->right, "right");
 }
 
 void	fill_content(t_list *tmp, t_tree *leaf)
@@ -56,8 +57,8 @@ t_tree	*creat_leaf(t_list *node, t_th *tree_h)
 
 	if (!node)
 		return (NULL);
-	leaf = gc(sizeof(t_tree) * 2, 0);
-	leaf->content = gc(sizeof(char *), 0);
+	leaf = gc(sizeof(t_tree), 0);
+	leaf->content = gc(sizeof(char *)*2, 0);
 	leaf->content[0] = node->content;
 	leaf->content[1] = NULL;
 	if (node->token_type == WORD)
