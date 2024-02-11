@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_functions_1.c                                :+:      :+:    :+:   */
+/*   libft_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlouazir <mlouazir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 11:43:46 by mlouazir          #+#    #+#             */
-/*   Updated: 2024/02/11 16:18:55 by mlouazir         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:21:26 by mlouazir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
 char	*ft_strchr(char *s, int c)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
-		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == (char)c)
@@ -51,14 +49,12 @@ int	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
-	if (!s)
-		return (0);
 	while (s[i])
 		i++;
 	return (i);
 }
 
-char	*ft_substr(char *s, unsigned int start, int len)
+char	*ft_substr(char *s, unsigned int start, int	len)
 {
 	char	*sub;
 	int		i;
@@ -66,9 +62,6 @@ char	*ft_substr(char *s, unsigned int start, int len)
 	i = 0;
 	if (start + len > (unsigned int)ft_strlen(s))
 		len = (unsigned int)ft_strlen(s) - start;
-	if (len + 1 < 0)
-	{printf("substr\n");
-		error_found();}
 	sub = gc(len + 1, 0);
 	while (s[start + i] && i < len)
 	{
