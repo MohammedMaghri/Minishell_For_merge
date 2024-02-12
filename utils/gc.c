@@ -6,7 +6,7 @@
 /*   By: mlouazir <mlouazir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:20:28 by mlouazir          #+#    #+#             */
-/*   Updated: 2024/02/11 16:19:21 by mlouazir         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:28:47 by mlouazir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 void	clear_all(t_gc *head)
 {
-	t_gc	*tmp;
+	t_gc *tmp;
 
 	while (head)
 	{
@@ -54,9 +54,9 @@ void	clear_all(t_gc *head)
 	}
 }
 
-void	*gc(int size, int pass)
+void	*gc(int	size, int pass)
 {
-	static t_gc	*head;
+	static t_gc *head;
 	t_gc		*node;
 	void		*address;
 	int			fd;
@@ -70,7 +70,7 @@ void	*gc(int size, int pass)
 			address = ft_calloc(size, 1);
 		else
 			fd = size;
-		if (!node || ((!address) && !pass))
+		if (!node || !address)
 			return (printf("error in allocation\n"), \
 			clear_all(head), NULL);
 		node->next = head;
